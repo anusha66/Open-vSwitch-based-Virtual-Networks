@@ -1,0 +1,8 @@
+alert udp $HOME_NET any -> any 53 (msg:"rulegen/url_lis dns request for root location http:"; byte_test:1,!&,0xF8,2; content:"|05|http:|00|";)
+alert udp $HOME_NET any -> any 53 (msg:"rulegen/url_lis dns request for root location http:"; byte_test:1,!&,0xF8,2; content:"|05|http:|00|";)
+alert udp $HOME_NET any -> any 53 (msg:"rulegen/url_lis dns request for root location http:"; byte_test:1,!&,0xF8,2; content:"|05|http:|00|";)
+alert udp $HOME_NET any -> any 53 (msg:"rulegen/url_lis dns request for root location https:"; byte_test:1,!&,0xF8,2; content:"|06|https:|00|";)
+alert tcp $HOME_NET any -> any $HTTP_PORTS (msg:"rulegen/url_lis HTTP trying to access http://www.gmail.com";content:"Host: http:"; http_header; content:"//www.gmail.com"; http_uri; )
+alert tcp $HOME_NET any -> any $HTTP_PORTS (msg:"rulegen/url_lis HTTP trying to access http://www.hotstar.com";content:"Host: http:"; http_header; content:"//www.hotstar.com"; http_uri; )
+alert tcp $HOME_NET any -> any $HTTP_PORTS (msg:"rulegen/url_lis HTTP trying to access http://www.example.com";content:"Host: http:"; http_header; content:"//www.example.com"; http_uri; )
+alert tcp $HOME_NET any -> any $HTTP_PORTS (msg:"rulegen/url_lis HTTP trying to access https://www.google.com/search?client=ubuntu&channel=fs&q=gf&ie=utf-8&oe=utf-8";content:"Host: https:"; http_header; content:"//www.google.com/search?client=ubuntu&channel=fs&q=gf&ie=utf-8&oe=utf-8"; http_uri; )
